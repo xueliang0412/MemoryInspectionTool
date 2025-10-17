@@ -579,5 +579,15 @@ class MemoryMonitorApp:
 
 if __name__ == "__main__":
     root = tk.Tk()
+
+    # ---------------------- 添加图标设置代码 ----------------------
+    try:
+        script_dir = os.path.dirname(os.path.abspath(__file__))    # 获取脚本所在目录的绝对路径
+        icon_path = os.path.join(script_dir, "app_icon.ico")    # 拼接图标文件路径（确保图标文件与脚本同目录）
+        root.iconbitmap(icon_path)    # 设置窗口图标（同时影响任务栏图标）
+    except Exception as e:
+        # 图标加载失败时不影响程序运行，仅打印提示
+        print(f"图标设置失败：{str(e)}（请确保app_icon.ico文件存在于脚本目录）")
+
     app = MemoryMonitorApp(root)
     root.mainloop()
