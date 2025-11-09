@@ -451,7 +451,7 @@ class MemoryMonitorApp:
 
         if summary_data:
             summary_df = pd.DataFrame.from_dict(summary_data, orient='index').sort_values('Timestamp')
-            headers = ['时间戳'] + process_names
+            headers = ['时间'] + process_names
             data_ws.append(headers)
 
             for _, row in summary_df.iterrows():
