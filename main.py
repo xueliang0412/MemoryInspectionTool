@@ -21,7 +21,9 @@ import matplotlib.dates as mdates
 import numpy as np
 
 matplotlib.use('TkAgg')
-plt.rcParams["font.family"] = ["SimHei", "WenQuanYi Micro Hei", "Heiti TC"]
+# ---------------------- 添加字体配置 ----------------------
+plt.rcParams["font.family"] = ["SimHei", "Microsoft YaHei"]  # 解决中文显示问题
+plt.rcParams["axes.unicode_minus"] = False  # 解决负号显示问题
 
 
 class MemoryMonitorApp:
@@ -354,10 +356,6 @@ class MemoryMonitorApp:
         # 更新统计表格
         if stats_data:
             self._update_stats_table(stats_data)
-
-        # ---------------------- 添加字体配置 ----------------------
-        plt.rcParams["font.family"] = ["SimHei", "WenQuanYi Micro Hei", "Heiti TC", "Microsoft YaHei"]  # 解决中文显示问题
-        plt.rcParams["axes.unicode_minus"] = False  # 解决负号显示问题
 
         # 图表样式设置
         if has_data:
